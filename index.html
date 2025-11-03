@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurfauziah Tour and Travel - Teman Perjalanan Ibadah & Wisata Halal Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> <!-- Font elegan -->
+    <style>
+        /* Reset dan Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+        a {
+            text-decoration: none;
+            color: #008080;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #005555;
+        }
+
+        /* Warna Utama: Hijau Toska (#008080) dan Putih (#FFFFFF) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #008080, #005555); /* Gradient elegan */
+            color: #fff;
+            border-radius: 25px; /* Lebih bulat untuk elegan */
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px); /* Efek lift */
+            box-shadow: 0 6px 20px rgba(0, 128, 128, 0.4);
+        }
+        .btn-secondary {
+            background-color: #fff;
+            color: #008080;
+            border: 2px solid #008080;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.2);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #008080, #005555);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 128, 128, 0.4);
+        }
+
+        /* Hero Section dengan animasi */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); /* Gambar Mekkah yang lebih spesifik */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            animation: fadeIn 2s ease-in-out; /* Animasi fade-in */
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 128, 128, 0.7), rgba(0, 85, 85, 0.7)); /* Gradient overlay */
+        }
+        .hero::after {
+            content: '﷽'; /* Bismillah untuk nuansa islami */
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0.8;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: slideUp 1.5s ease-out 0.5s both; /* Animasi slide up */
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .hero .btn {
+            margin: 0 10px;
+        }
+
+        /* Animasi Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Section Umum dengan efek */
+        section {
+            padding: 60px 0;
+            background-color: #fff;
+            position: relative;
+        }
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f9f9f9, #e0f7f7); /* Gradient halus */
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #008080;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #008080, #005555);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Tentang Kami */
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mengapa Memilih Kami */
+        .why-choose {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .why-item {
+            text-align: center;
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .why-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .why-item i {
+            font-size: 3rem;
+            color: #008080;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .why-item:hover i {
+            color: #005555;
+        }
+
+        /* Layanan Utama */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            background: linear-gradient(135deg, #fff, #f0f8f8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .service-item i {
+            font-size: 2rem;
+            color: #008080;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .service-item:hover i {
+            color: #005555;
+        }
+
+        /* Testimoni */
+        .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .testimonial {
+            background: linear-gradient(135deg, #fff, #f0f8f8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .testimonial img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #008080;
+            transition: border-color 0.3s ease;
+        }
+        .testimonial:hover img {
+            border-color: #005555;
+        }
+
+        /* Galeri */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Formulir */
+        .form-section {
+            background: linear-gradient(135deg, #f9f9f9, #e0f7f7);
+            padding: 40px 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fff, #f0f8f8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #008080;
+            outline: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #008080, #005555);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #fff, #008080, #fff);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .services, .testimonials, .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Untuk ikon -->
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Teman Perjalanan Ibadah & Wisata Halal Anda</h1>
+            <p>Dengan Nurfauziah Tour and Travel, wujudkan perjalanan spiritual dan rekreasi yang penuh berkah. Kami siap menemani Anda menuju destinasi impian dengan amanah dan nyaman.</p>
+            <a href="#services" class="btn">Lihat Paket Sekarang</a>
+            <a href="#contact" class="btn btn-secondary">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about">
+                <div class="about-text">
+                    <p>Nurfauziah Tour and Travel hadir sebagai mitra terpercaya untuk perjalanan ibadah dan wisata halal. Visi kami adalah memberikan pelayanan yang amanah, profesional, dan nyaman, sehingga setiap jamaah dapat fokus pada ibadah dan kenangan indah.</p>
+                    <p>Misi kami: Menyediakan paket perjalanan yang berkualitas dengan harga transparan, didukung oleh tim pendamping berpengalaman dan izin resmi dari Kementerian Agama.</p>
+                </div>
+                <!-- Gambar orang dihilangkan -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mengapa Memilih Kami -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Kami?</h2>
+            <div class="why-choose">
+                <div class="why-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Berizin Resmi Kemenag</h3>
+                    <p>Kami memiliki izin resmi dari Kementerian Agama untuk menjamin keamanan dan keabsahan perjalanan ibadah Anda.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Pendamping Berpengalaman</h3>
+                    <p>Tim kami terdiri dari pendamping profesional yang siap menemani Anda sepanjang perjalanan.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Harga Transparan</h3>
+                    <p>Tidak ada biaya tersembunyi. Kami tawarkan harga yang jelas dan kompetitif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Utama -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Utama Kami</h2>
+            <div class="services">
+                <div class="service-item">
+                    <i class="fas fa-kaaba"></i>
+                    <h3>Umrah & Haji Plus</h3>
+                    <p>Paket lengkap untuk ibadah umrah dan haji dengan fasilitas tambahan untuk kenyamanan Anda.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-plane"></i>
+                    <h3>Wisata Halal Internasional</h3>
+                    <p>Jelajahi Turki, Dubai, Mesir, dan lainnya dengan paket wisata halal yang sesuai syariat.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Paket Domestik</h3>
+                    <p>Nikmati keindahan Lombok, Bali, Aceh, dan destinasi domestik lainnya dengan sentuhan islami.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-hotel"></i>
+                    <h3>Tiket & Hotel Booking</h3>
+                    <p>Pesan tiket pesawat dan hotel dengan mudah melalui layanan kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Jamaah -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Testimoni Jamaah Kami</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Kaaba"> <!-- Gambar Kaaba -->
+                    <p>"Perjalanan umrah bersama Nurfauziah sangat berkesan. Pendampingnya sangat membantu dan amanah."</p>
+                    <h4>- Siti Aminah</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f
